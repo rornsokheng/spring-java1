@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en"xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:th="http://www.thymeleaf.org"
+    xmlns:sec="http://www.thymeleaf.org">
+
+<head 
+	th:replace = "~{base::head}">
+</head>
+
+<body>
+    <!-- Navbar Start -->
+	<div th:replace="~{base::navbar}"></div>
+    <!-- Navbar End -->
+
+
+    <!-- Page Header Start -->
+	<div th:replace = "~{base::PageHeader(text='Success')}"></div>
+    <!-- Page Header End -->
+
+
+    <!-- Success Start -->
+<div class="container-fluid py-5">
+    <div class="container">
+        <div class="section-title text-center mb-5">
+            <h2 class="fw-bold text-uppercase">Booking Successful 🎉</h2>
+            <p class="text-muted">Thank you for your reservation. Here are your booking details:</p>
+        </div>
+
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="card shadow-lg rounded-3 border-0">
+                    <div class="card-body p-4">
+                        <h3 class="mb-4 text-center text-success">Booked Success</h3>
+                        
+                        <!-- Table for Booking Info -->
+                        <table class="table table-striped table-bordered">
+                            <tbody>
+									<tr>
+										<th scope="row">Name</th>
+										<td th:text="${booked.name}"></td>
+									</tr>
+									<tr>
+										<th scope="row">Phone Number</th>
+										<td th:text="${booked.phoneNumber}"></td>
+									</tr>
+									<tr>
+										<th scope="row">Email</th>
+										<td th:text="${booked.email}"></td>
+									</tr>
+									<tr>
+										<th scope="row">Date</th>
+										<td th:text="${booked.date}"></td>
+									</tr>
+									<tr>
+										<th scope="row">Time</th>
+										<td th:text="${booked.time}"></td>
+									</tr>
+									
+									<tr>
+										<th scope="row">Persons</th>
+										<td th:text="${booked.person}"></td>
+									</tr>
+
+								</tbody>
+                        </table>
+
+                        <!-- Success Message -->
+                        <div class="alert alert-success text-center mt-4" role="alert">
+                            🎊 Your booking has been confirmed! We look forward to serving you ☕
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Success End -->
+
+<style>
+    .table th {
+        width: 30%;
+        background-color: #f8f9fa;
+    }
+    .table td {
+        font-weight: 500;
+    }
+    .card {
+        background: #fffdf7;
+    }
+</style>
+
+
+
+    <!-- Footer Start -->
+    <div th:replace = "~{base::footer}"></div>
+ 	<!-- Footer End -->
+
+    <!-- Back to Top -->
+      <div th:replace = "~{base::script}"></div>
+</body>
+
+</html>
