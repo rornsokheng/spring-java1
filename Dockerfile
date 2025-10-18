@@ -5,7 +5,7 @@ FROM eclipse-temurin:17-jre
 WORKDIR /app
 
 # Copy your built JAR file into the image
-COPY coffee-shop-telegram-bot-0.0.1-SNAPSHOT.jar app.jar
+COPY coffee-shop-telegram-bot\build\libs\coffee-shop-telegram-bot-0.0.1-SNAPSHOT.jar app.jar
 
 # Expose port 8080
 EXPOSE 8080
