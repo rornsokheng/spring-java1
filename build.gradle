@@ -37,6 +37,7 @@ dependencies {
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 	// https://mvnrepository.com/artifact/com.github.pengrad/java-telegram-bot-api
+	implementation 'org.postgresql:postgresql:42.7.3'
 implementation 'com.github.pengrad:java-telegram-bot-api:9.2.0'
 }
 
