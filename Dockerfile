@@ -1,33 +1,24 @@
 # ===== Build stage =====
-FROM eclipse-temurin:21-jdk-alpine AS build
+FROM gradle:8.4.1-jdk21 AS build  # Uses Gradle 8 + Java 21
 
-# Set working directory
 WORKDIR /app
 
-# Copy Gradle wrapper and build files
-COPY gradlew .
-COPY gradle ./gradle
-COPY build.gradle .
-COPY settings.gradle .
-
-# Copy source code
+# Copy project files
+COPY build.gradle settings.gradle ./
 COPY src ./src
 
-# Give execute permission to Gradle wrapper
-RUN chmod +x gradlew
-
-# Build the jar (skip tests for faster build)
-RUN gradlew clean build -x test
+# Build the jar (skip tests)
+RUN gradle clean build -x test --no-daemon
 
 # ===== Run stage =====
 FROM eclipse-temurin:21-jdk-alpine
 
 WORKDIR /app
 
-# Copy the jar from the build stage
+# Copy the jar from build stage (auto-detect versioned jar)
 COPY --from=build /app/build/libs/*.jar app.jar
 
-# Expose port (optional, adjust if your app uses a different port)
+# Expose port
 EXPOSE 8080
 
 # Run the Spring Boot jar
