@@ -17,13 +17,13 @@ public class MyController {
   @GetMapping({"/","/home"})
   public String home(Model mod) {
     Booked booked = new Booked(
-        1,
-        "Rorn Sokheng",
-        "068517962",
-        "rornsokheng@gmail.com",
-        "12/12/2025",
-        "12:00 AM",
-        2);
+    		1,
+            "Meanheng Vong",
+            "010987654",
+            "meanheng@gmail.com",
+            "12/12/2025",
+            "12:00 AM",
+            2);
     mod.addAttribute("booked", booked);
     return "index";
   }
@@ -46,13 +46,13 @@ public class MyController {
   @GetMapping("/reservation")
   public String reservation(Model mod) {
     Booked booked = new Booked(
-        1,
-        "Rorn Sokheng",
-        "068517962",
-        "rornsokheng@gmail.com",
-        "12/12/2025",
-        "12:00 AM",
-        2);
+    		1,
+            "Meanheng Vong",
+            "010987654",
+            "meanheng@gmail.com",
+            "12/12/2025",
+            "12:00 AM",
+            2);
     mod.addAttribute("booked", booked);
     return "reservation";
   }
